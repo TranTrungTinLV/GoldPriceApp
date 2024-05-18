@@ -1,0 +1,83 @@
+[
+  {
+    "id": "d27wgfhb6zb884g",
+    // "title": "SJC 1L, 10L, 1KG",
+    "subtitle": "",
+    "sequence": 1,
+    "buyingPrice": 87700000,
+    "sellingPrice": 90400000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "j1r38n2os93bhx5",
+    "title": "SJC 5C",
+    "subtitle": "",
+    "sequence": 2,
+    "buyingPrice": 87700000,
+    "sellingPrice": 90420000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "km0owqt21drnegu",
+    "title": "SJC 1C, 2C, 5 phân",
+    "subtitle": "",
+    "sequence": 3,
+    "buyingPrice": 87700000,
+    "sellingPrice": 90430000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "7rwcrkrqicyn9kx",
+    "title": "Vàng nhẫn SJC 99.99%",
+    "subtitle": "1 chỉ, 2 chỉ, 5 chỉ",
+    "sequence": 4,
+    "buyingPrice": 75600000,
+    "sellingPrice": 77200000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "bnfc1imh32h9sq8",
+    "title": "Vàng nhẫn SJC 99.99%",
+    "subtitle": "0.3 chỉ, 0.5 chỉ",
+    "sequence": 5,
+    "buyingPrice": 75600000,
+    "sellingPrice": 77300000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "y6cohha2ad5l4mc",
+    "title": "Nữ trang 99.99%",
+    "subtitle": "",
+    "sequence": 6,
+    "buyingPrice": 75400000,
+    "sellingPrice": 76400000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "abx6wetu2lt9xo0",
+    "title": "Nữ trang 99%",
+    "subtitle": "",
+    "sequence": 7,
+    "buyingPrice": 73644000,
+    "sellingPrice": 75644000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "a909nqpnq8bp3di",
+    "title": "Nữ trang 68%",
+    "subtitle": "",
+    "sequence": 8,
+    "buyingPrice": 49607000,
+    "sellingPrice": 52107000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  },
+  {
+    "id": "1949j4sj4s3vb0r",
+    "title": "Nữ trang 41.7%",
+    "subtitle": "",
+    "sequence": 9,
+    "buyingPrice": 29512000,
+    "sellingPrice": 32012000,
+    "timestamp": "2024-05-18 01:27:00.000Z"
+  }
+]
