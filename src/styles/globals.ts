@@ -14,7 +14,12 @@ export const colors = {
   gray700: '#374151',
   gray800: '#1f2937',
   gray900: '#111827',
-  gray950: '#030712'
+  gray950: '#030712',
+
+  /** zinc */
+  zin50: '#fafafa',
+  zinc700: '#3f3f46',
+  zinc100: '#f4f4f5'
 }
 
 type ColorKey = keyof typeof colors
