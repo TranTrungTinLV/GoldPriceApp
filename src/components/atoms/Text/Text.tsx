@@ -15,7 +15,6 @@ export const Text = (props: TextProps): ReactElement => {
       color: color('black', 'white'),
       fontSize: 20
     },
-
     style
   ]
 

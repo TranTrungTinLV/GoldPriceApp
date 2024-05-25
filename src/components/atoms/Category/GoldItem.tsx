@@ -1,23 +1,21 @@
-import React, { type ReactElement, type ReactNode } from 'react'
+import React, { type ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 
 // types iGold
 import { type PriceItem } from '../../../../types/gold.interfaces'
-import { Text } from '../Text'
 import { useColor } from '../../../styles/globals'
+import { Text } from '../Text'
 
 interface itemGold {
   item: PriceItem
-  children?: ReactNode
+  // children?: ReactNode
 }
-
 export const GoldItem = (props: itemGold): ReactElement => {
   const color = useColor()
+  console.log(color)
   return (
     <View style={{ margin: 16 }}>
-      <View style={[styles.goldContainer, {
-        backgroundColor: color('zinc100', 'zinc700')
-      }]}>
+      <View style={[styles.goldContainer, { backgroundColor: color('zinc100', 'zinc700') }]}>
         <Text style={[styles.td, { flex: 2 }]}>{props?.item?.title ? `${props?.item?.title}` : 'Đang cập nhật'}</Text>
         <Text style={[styles.td, { flex: 1 }]}>{props?.item?.sellingPrice ? `${props?.item?.sellingPrice}` : 'Đang cập nhật giá mua'}</Text>
         <Text style={[styles.td, { flex: 1 }]}>{props?.item?.buyingPrice ? `${props?.item?.buyingPrice}` : 'Đang cập nhật giá bán'}</Text>
@@ -37,6 +35,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 16,
     flex: 1,
+
   },
   text: {
     fontSize: 10,

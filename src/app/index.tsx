@@ -34,23 +34,16 @@ export default function Page(): ReactElement {
       </View>
       <View style={{ marginHorizontal: 5, flex: 0.3, marginBottom: 5 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
-          {/* <View> */}
           <Text style={[{ flex: 2, marginLeft: 32, fontSize: 10, fontWeight: '700' }]}>Loại vàng</Text>
-          {/* </View> */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', flex: 2, marginRight: 16 }}>
             <Text style={[styles.th]}>Giá mua</Text>
             <Text style={[styles.th]}>Giá bán</Text>
           </View>
         </View>
         <View>
-          {/* <View style={{ backgroundColor: '#F4F4F5', flexDirection: 'row', padding: 15, margin: 16, borderRadius: 16, justifyContent: 'space-around' }}>
-              <Text style={styles.td}>SJC 1L, 10L, 1KG</Text>
-              <Text style={styles.td}>88,000,000</Text>
-              <Text style={styles.td}>91,000,000</Text>
-            </View> */}
           <FlatList
             data={prices.items}
-            renderItem={GoldItem}
+            renderItem={({ item }) => <GoldItem item={item} />}
             keyExtractor={item => item?.id}
           />
         </View>
