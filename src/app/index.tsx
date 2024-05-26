@@ -1,21 +1,39 @@
-
-import React, { type ReactElement } from 'react'
+import React, { type ReactElement, useEffect, useState } from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
 
 import { usePrices } from '../../hooks/usePriceOut'
 import { Button } from '../components/atoms/Button'
 import { GoldItem } from '../components/atoms/Category'
 import { Text } from '../components/atoms/Text'
+import { useColor } from '../styles/globals'
 import SplashScreen from './splash'
 // const
 export default function Page(): ReactElement {
-  const { prices, loading } = usePrices()
-  console.log(prices, loading)
-  if (loading) {
+  const { prices, loading: dataLoading, timestamp } = usePrices()
+  console.log(prices, dataLoading)
+  const [loading, setLoading] = useState(true)
+  const colors = useColor()
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+
+  if (loading || dataLoading) {
     return (
       <SplashScreen />
     )
   }
+  const formattedTimestamp = new Date(timestamp).toLocaleString('en-GB', {
+    hour12: false,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  })
+
   return (
 
     <View style={{ flex: 1 }}>
@@ -25,12 +43,20 @@ export default function Page(): ReactElement {
         </Text>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 32, marginVertical: 16 }}>
-        <Text style={[styles.text]}>
-          Cập nhật: 09:46:42 AM 11/05/2024
-        </Text>
-        <Text style={styles.text}>
-          Đơn vị tính: VNĐ/lượng
-        </Text>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={[styles.text]}>
+            Cập nhật:
+          </Text>
+          <Text style={[styles.text, { marginLeft: 2, fontWeight: '800', color: colors('green700', 'red400') }]}>{formattedTimestamp}</Text>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={[styles.text]}>
+            Đơn vị tính:
+          </Text>
+          <Text style={[styles.text, { fontWeight: '600', marginLeft: 2 }]}>
+            VNĐ/lượng
+          </Text>
+        </View>
       </View>
       <View style={{ marginHorizontal: 5, flex: 1, marginBottom: 5 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
@@ -55,10 +81,9 @@ export default function Page(): ReactElement {
           backgroundColor: '#FACC15',
           padding: 16,
           borderRadius: 20,
-          alignItems: 'center',
           justifyContent: 'center',
           marginHorizontal: 16,
-          marginBottom: 20
+          marginBottom: 20,
         }}
         textStyle={{ fontSize: 14, fontWeight: 700, textAlign: 'center' }} />
     </View>

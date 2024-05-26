@@ -19,7 +19,13 @@ export const colors = {
   /** zinc */
   zin50: '#fafafa',
   zinc700: '#3f3f46',
-  zinc100: '#f4f4f5'
+  zinc100: '#f4f4f5',
+
+  /** green */
+  green700: '#15803d',
+
+  /**red */
+  red400: '#f87171'
 }
 
 type ColorKey = keyof typeof colors
