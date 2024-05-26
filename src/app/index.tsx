@@ -1,12 +1,13 @@
 import React, { type ReactElement, useEffect, useState } from 'react'
-import { FlatList, StyleSheet, View } from 'react-native'
+import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native'
 
 import { usePrices } from '../../hooks/usePriceOut'
 import { Button } from '../components/atoms/Button'
 import { GoldItem } from '../components/atoms/Category'
 import { Text } from '../components/atoms/Text'
 import { useColor } from '../styles/globals'
-import SplashScreen from './splash'
+import SplashScreenComponent from './splash'
+
 // const
 export default function Page (): ReactElement {
   const { prices, loading: dataLoading, timestamp } = usePrices()
@@ -21,10 +22,10 @@ export default function Page (): ReactElement {
 
   if (loading || dataLoading) {
     return (
-      <SplashScreen />
+      <SplashScreenComponent />
     )
   }
-  const formattedTimestamp = new Date(timestamp).toLocaleString('en-GB', {
+  const formattedTimestamp = new Date(timestamp).toLocaleString('vi-VN', {
     hour12: false,
     year: 'numeric',
     month: '2-digit',
@@ -73,21 +74,25 @@ export default function Page (): ReactElement {
           data={storedSequence}
           renderItem={({ item }) => <GoldItem item={item} />}
           keyExtractor={item => item?.id}
+          ListFooterComponent={
+            <Button
+              text="Nhận Thông Báo"
+              text2='Khi có biến động về giá vàng'
+              onPress={()=>{}}
+              style={{
+                backgroundColor: colors('yellow400', 'yellow600'),
+                padding: 16,
+                borderRadius: 20,
+                justifyContent: 'center',
+                marginHorizontal: 16,
+                marginBottom: 20,
+                marginTop: 20
+              }}
+              textStyle={{ fontSize: 14, fontWeight: 700, textAlign: 'center' }} />
+          }
         />
-
       </View>
-      <Button
-        text="Nhận Thông Báo"
-        text2='Khi có biến động về giá vàng'
-        style={{
-          backgroundColor: '#FACC15',
-          padding: 16,
-          borderRadius: 20,
-          justifyContent: 'center',
-          marginHorizontal: 16,
-          marginBottom: 20
-        }}
-        textStyle={{ fontSize: 14, fontWeight: 700, textAlign: 'center' }} />
+
     </View>
 
   )
@@ -112,5 +117,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textAlign: 'center',
     alignContent: 'center'
+  },
+  loading: {
+    paddingVertical: 20,
+    borderTopWidth: 1,
+    borderColor: "#CED0CE"
   }
 })

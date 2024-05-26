@@ -22,7 +22,7 @@ export const Button = (props: ButtonProps): ReactElement => {
         alignContent: 'center'
       }}>
         <Image source={require('../../../../assets/ring-ring.png')} style={{ marginLeft: 16, width: 24, height: 24 }} />
-        <View style={{ flexDirection: 'column', marginRight: 20, justifyContent: 'center' }} >
+        <View style={{ flexDirection: 'column', justifyContent: 'center' }} >
           <Text style={[props.textStyle, { color: '#00254d' }]}>{props.text}</Text>
           <Text style={{ fontSize: 10, fontWeight: '500', color: '#00254d' }}>{props.text2}</Text>
         </View>

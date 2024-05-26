@@ -24,8 +24,12 @@ export const colors = {
   /** green */
   green700: '#15803d',
 
-  /**red */
-  red400: '#f87171'
+  /** red */
+  red400: '#f87171',
+
+  /** yellow */
+  yellow400: '#FFC107',
+  yellow600: '#FACC15'
 }
 
 type ColorKey = keyof typeof colors

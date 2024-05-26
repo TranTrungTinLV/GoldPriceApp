@@ -2,7 +2,7 @@ export interface PriceOut {
   items: PriceItem[]
 }
 export interface PriceItem {
-  id: string
+  id: string 
   title: string
   subtitle: string
   sequence: number
