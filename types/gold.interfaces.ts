@@ -8,5 +8,5 @@ export interface PriceItem {
   sequence: number
   buyingPrice: number
   sellingPrice: number
-  timestamp: string
+  timestamp: Date
 }

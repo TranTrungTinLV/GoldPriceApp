@@ -8,17 +8,16 @@ import { Text } from '../Text'
 
 interface itemGold {
   item: PriceItem
-  // children?: ReactNode
 }
-export const GoldItem = (props: itemGold): ReactElement => {
+export const GoldItem = ({ item }: itemGold): ReactElement => {
   const color = useColor()
   console.log(color)
   return (
     <View style={{ margin: 16 }}>
       <View style={[styles.goldContainer, { backgroundColor: color('zinc100', 'zinc700') }]}>
-        <Text style={[styles.td, { flex: 2 }]}>{props?.item?.title ? `${props?.item?.title}` : 'Đang cập nhật'}</Text>
-        <Text style={[styles.td, { flex: 1 }]}>{props?.item?.sellingPrice ? `${props?.item?.sellingPrice}` : 'Đang cập nhật giá mua'}</Text>
-        <Text style={[styles.td, { flex: 1 }]}>{props?.item?.buyingPrice ? `${props?.item?.buyingPrice}` : 'Đang cập nhật giá bán'}</Text>
+        <Text style={[styles.td, { flex: 2 }]}>{item?.title ? `${item?.title}` : 'Đang cập nhật'}</Text>
+        <Text style={[styles.td, { flex: 1 }]}>{item?.sellingPrice ? `${item?.sellingPrice}` : 'Đang cập nhật giá mua'}</Text>
+        <Text style={[styles.td, { flex: 1 }]}>{item?.buyingPrice ? `${item?.buyingPrice}` : 'Đang cập nhật giá bán'}</Text>
       </View>
     </View>
 
@@ -27,14 +26,14 @@ export const GoldItem = (props: itemGold): ReactElement => {
 
 const styles = StyleSheet.create({
   title: {
-    padding: 20
+    padding: 20,
     // flex: 1
   },
   goldContainer: {
     flexDirection: 'row',
     padding: 20,
     borderRadius: 16,
-    flex: 1,
+    flex: 1
 
   },
   text: {

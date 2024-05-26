@@ -1,3 +1,4 @@
+
 import React, { type ReactElement } from 'react'
 import { FlatList, StyleSheet, View } from 'react-native'
 
@@ -5,15 +6,14 @@ import { usePrices } from '../../hooks/usePriceOut'
 import { Button } from '../components/atoms/Button'
 import { GoldItem } from '../components/atoms/Category'
 import { Text } from '../components/atoms/Text'
+import SplashScreen from './splash'
 // const
 export default function Page(): ReactElement {
   const { prices, loading } = usePrices()
   console.log(prices, loading)
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Loading...</Text>
-      </View>
+      <SplashScreen />
     )
   }
   return (
@@ -32,7 +32,7 @@ export default function Page(): ReactElement {
           Đơn vị tính: VNĐ/lượng
         </Text>
       </View>
-      <View style={{ marginHorizontal: 5, flex: 0.3, marginBottom: 5 }}>
+      <View style={{ marginHorizontal: 5, flex: 1, marginBottom: 5 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 }}>
           <Text style={[{ flex: 2, marginLeft: 32, fontSize: 10, fontWeight: '700' }]}>Loại vàng</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', flex: 2, marginRight: 16 }}>
@@ -40,13 +40,13 @@ export default function Page(): ReactElement {
             <Text style={[styles.th]}>Giá bán</Text>
           </View>
         </View>
-        <View>
-          <FlatList
-            data={prices.items}
-            renderItem={({ item }) => <GoldItem item={item} />}
-            keyExtractor={item => item?.id}
-          />
-        </View>
+
+        <FlatList
+          data={prices}
+          renderItem={({ item }) => <GoldItem item={item} />}
+          keyExtractor={item => item?.id}
+        />
+
       </View>
       <Button
         text="Nhận Thông Báo"
@@ -57,9 +57,8 @@ export default function Page(): ReactElement {
           borderRadius: 20,
           alignItems: 'center',
           justifyContent: 'center',
-          marginTop: 40,
-          marginHorizontal: 16
-
+          marginHorizontal: 16,
+          marginBottom: 20
         }}
         textStyle={{ fontSize: 14, fontWeight: 700, textAlign: 'center' }} />
     </View>
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
     fontWeight: '400'
   },
   th: {
-    // flex: 1,
     paddingRight: 46,
     fontSize: 10,
     fontWeight: '700',
