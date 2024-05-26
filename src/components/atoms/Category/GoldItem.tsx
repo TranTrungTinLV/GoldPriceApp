@@ -12,6 +12,7 @@ interface itemGold {
 export const GoldItem = ({ item }: itemGold): ReactElement => {
   const color = useColor()
   const formatSelling = item.sellingPrice.toLocaleString('it-IT')
+  console.log(formatSelling)
   const formatBuying = item.buyingPrice.toLocaleString('it-IT')
 
   console.log(color)

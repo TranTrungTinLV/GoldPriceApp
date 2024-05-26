@@ -8,7 +8,7 @@ import { Text } from '../components/atoms/Text'
 import { useColor } from '../styles/globals'
 import SplashScreen from './splash'
 // const
-export default function Page(): ReactElement {
+export default function Page (): ReactElement {
   const { prices, loading: dataLoading, timestamp } = usePrices()
   console.log(prices, dataLoading)
   const [loading, setLoading] = useState(true)
@@ -34,6 +34,8 @@ export default function Page(): ReactElement {
     second: '2-digit'
   })
 
+  const storedSequence = prices.sort((a, b) => a.sequence - b.sequence)
+  console.log(storedSequence)
   return (
 
     <View style={{ flex: 1 }}>
@@ -68,7 +70,7 @@ export default function Page(): ReactElement {
         </View>
 
         <FlatList
-          data={prices}
+          data={storedSequence}
           renderItem={({ item }) => <GoldItem item={item} />}
           keyExtractor={item => item?.id}
         />
@@ -83,7 +85,7 @@ export default function Page(): ReactElement {
           borderRadius: 20,
           justifyContent: 'center',
           marginHorizontal: 16,
-          marginBottom: 20,
+          marginBottom: 20
         }}
         textStyle={{ fontSize: 14, fontWeight: 700, textAlign: 'center' }} />
     </View>

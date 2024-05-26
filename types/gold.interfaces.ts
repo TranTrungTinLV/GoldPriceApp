@@ -6,7 +6,7 @@ export interface PriceItem {
   title: string
   subtitle: string
   sequence: number
-  buyingPrice: number
-  sellingPrice: number
+  buyingPrice: string | number
+  sellingPrice: string | number
   timestamp: string
 }
